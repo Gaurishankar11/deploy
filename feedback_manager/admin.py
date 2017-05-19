@@ -44,10 +44,18 @@ def send_mails(queryset):
 		send_mail(subject, text_content, 'gaurishankar.neo@gmail.com',
 				  [user_obj.email], html_message=msg_html)
 
+def delete_feedback(modeladmin, request, queryset):
+	for obj in queryset:
+		feedbacks = Feedback.objects.filter(user=obj)
+		for feedback in feedbacks:
+			feedback.delete()
+
+delete_feedback.short_description = "Delete feedback for selected users"
+
 class user_asign_feedback(admin.ModelAdmin):
     list_display = ['username']
     ordering = ['username']
-    actions = [assign_feedback]
+    actions = [assign_feedback, delete_feedback]
 
 
 class OptionInline(admin.TabularInline):
@@ -119,6 +127,7 @@ def daterange(start_date, end_date):
         yield start_date + timedelta(n)
 
 
+
 admin_site = MyAdminSite(name='myadmin')
 
 admin.site.register(Question, QuestionAdmin)
@@ -127,6 +136,6 @@ admin.site.register(Feedback, FeedbackAdmin)
 admin.site.register(FeedbackType)
 admin.site.unregister(User)
 admin.site.register(User, user_asign_feedback)
-admin.site.register([Subject, Grade, UserGradeMap, FeedbackAppointmentMap])
+admin.site.register([Subject, Grade, UserGradeMap, Day, FeedbackAppointmentMap])
 
 admin.site.register(TimeTable,create_apoointment)
