@@ -127,6 +127,6 @@ admin.site.register(Feedback, FeedbackAdmin)
 admin.site.register(FeedbackType)
 admin.site.unregister(User)
 admin.site.register(User, user_asign_feedback)
-admin.site.register([Subject, Grade, UserGradeMap, Day, FeedbackAppointmentMap])
+admin.site.register([Subject, Grade, UserGradeMap, FeedbackAppointmentMap])
 
 admin.site.register(TimeTable,create_apoointment)
