@@ -33,10 +33,10 @@ days_list = (
 	('2','Tuesday'))
 
 feedback_types = (
-	('prev_results','Results'),
+	('prior results','Results'),
 	('appointment','Appointment'),
 	('review','Take a Review'),
-	('future_courses','Available courses'))
+	('future courses','Available courses'))
 
 class Question(models.Model):
 	text = models.TextField()
@@ -106,7 +106,7 @@ class FeedbackType(models.Model):
 	status = models.CharField(max_length=10, choices=type_status, default='A')
 
 	def is_results(self):
-		if self.name == 'prev_results':
+		if self.name == 'prior results':
 			return True
 		return False
 
