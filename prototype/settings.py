@@ -138,6 +138,6 @@ BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
 ADMIN_SITE_HEADER = "My shiny new administration"
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 
