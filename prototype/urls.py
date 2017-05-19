@@ -30,6 +30,6 @@ urlpatterns = [
     url(r'avail_time/$', views.avail_time, name='avail_time'),
 ]
 
-urlpatterns += patterns('', (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.STATIC_ROOT}),)
+urlpatterns += url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.STATIC_ROOT})
 
 admin.site.site_header = 'Feedback Administration'
