@@ -14,8 +14,9 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url, patterns
+from django.conf.urls import url
 from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from django.contrib import admin
 from feedback_manager import views
@@ -29,6 +30,7 @@ urlpatterns = [
     url(r'avail_time/$', views.avail_time, name='avail_time'),
 ]
 
-urlpatterns += patterns(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.STATIC_ROOT})
+#urlpatterns += url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.STATIC_ROOT})
+urlpatterns += staticfiles_urlpatterns()
 
 admin.site.site_header = 'Feedback Administration'
