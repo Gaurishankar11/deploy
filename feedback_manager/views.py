@@ -135,3 +135,7 @@ def avail_time(request):
 	#response = {'success':True, 'available_appointments': available_appointments}
 	#return HttpResponse(JsonResponse(response_data), content_type="application/json")
 	return JsonResponse(response)
+
+# def email_test(request):
+# 	feedbacks = Feedback.objects.filter(user=request.user, status='A').order_by('feedback_type__order_id')
+# 	return render(request, 'email_temp.html', {'feedbacks': feedbacks, 'name':request.user.username})

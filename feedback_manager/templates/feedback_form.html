@@ -38,6 +38,7 @@ td {
 	{% if objs.feedback_type.is_results %}
   <div class="row">
     <div class="col-md-offset-4 col-md-4">
+    {% if grade_objs %}
     <table class="table table-bordered" style="border: 3px solid black; border-collapse: collapse; margin: auto;">
 <!--       <table align="center"> -->
 
@@ -61,6 +62,9 @@ td {
             {% endfor %}
         </tbody>
     </table>
+    {% else %}
+    <p class="alert alert-info" style="margin: 25px;">You have not registered for any courses prior to this.<br>Thanks</p>
+    {% endif %}
     </div>
     </div>
 

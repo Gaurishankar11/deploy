@@ -104,6 +104,7 @@ class FeedbackType(models.Model):
 	name = models.CharField(max_length=48, unique=True, choices=feedback_types)
 	questions = models.ManyToManyField(Question, blank=True)
 	status = models.CharField(max_length=10, choices=type_status, default='A')
+	order_id = models.IntegerField(default=0)
 
 	def is_results(self):
 		if self.name == 'prior results':

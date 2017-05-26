@@ -36,7 +36,7 @@ assign_feedback.short_description = "Send feedback mail to selected users"
 
 def send_mails(queryset):
 	for user_obj in queryset:
-		feedbacks = Feedback.objects.filter(user=user_obj, status='A')
+		feedbacks = Feedback.objects.filter(user=user_obj, status='A').order_by('feedback_type__order_id')
 		msg_html = render_to_string('email_temp.html', {'feedbacks': feedbacks, 'name':user_obj.username})
 
 		subject='Feedback Mail'
@@ -126,14 +126,15 @@ def daterange(start_date, end_date):
     for n in range(int ((end_date - start_date).days)):
         yield start_date + timedelta(n)
 
-
+class FeedbackTypeAdmin(admin.ModelAdmin):
+	list_display = ('name', 'order_id')
 
 admin_site = MyAdminSite(name='myadmin')
 
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Feedback, FeedbackAdmin)
 
-admin.site.register(FeedbackType)
+admin.site.register(FeedbackType, FeedbackTypeAdmin)
 admin.site.unregister(User)
 admin.site.register(User, user_asign_feedback)
 admin.site.register([Subject, Grade, UserGradeMap, FeedbackAppointmentMap])

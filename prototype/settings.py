@@ -130,8 +130,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 
 # Optional SMTP authentication information for EMAIL_HOST.
-EMAIL_HOST_USER = 'gaurishankar.neo@gmail.com'
-EMAIL_HOST_PASSWORD = 'new@neo123'
+EMAIL_HOST_USER = 'Sidtest9591@Gmail.com'
+EMAIL_HOST_PASSWORD = 'Bondelcourt700019'
 EMAIL_USE_TLS = True
 
 BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
